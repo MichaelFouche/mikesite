@@ -16,7 +16,7 @@ public class MikesiteApplicationTests {
 	
 	@Test
 	public void testTrue() {
-		Assert.assertTrue(false);
+		Assert.assertTrue(true);
 	}
 
 }
