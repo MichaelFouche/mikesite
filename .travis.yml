@@ -6,9 +6,10 @@ sudo: required
 services:
 - docker
 
-env.global:
-    travis encrypt DOCKER_USER=”dockerhub-username-test”
-    travis encrypt DOCKER_PASS=”dockerhub-password”
+env:
+    global:
+    - travis encrypt DOCKER_USER=”dockerhub-username-test”
+    - travis encrypt DOCKER_PASS=”dockerhub-password”
 
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
