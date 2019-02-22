@@ -13,10 +13,18 @@ public class GreetingController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
     
+    //http://localhost:8080/hello-world
     @GetMapping("/hello-world")
     @ResponseBody
     public Greeting sayHello(@RequestParam(name="name", required=false, defaultValue="Stranger") String name) {
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
+    }
+    
+    //http://localhost:8080/
+    @GetMapping("/")
+    @ResponseBody
+    public Greeting sayWelcome() {
+        return new Greeting(counter.incrementAndGet(), String.format(template, "Bru!"));
     }
     
 }
